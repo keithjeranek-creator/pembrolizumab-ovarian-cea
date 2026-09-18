@@ -1,0 +1,12 @@
+PEMBROLIZUMAB PRICE-REDUCTION THRESHOLD ANALYSIS — KEYNOTE-B96 CEA
+Current WAC: $24,544 per dose | Base-case ICER: $981,116 per QALY
+ICER floor at $0 drug price: $52,858 per QALY (non-drug costs remain)
+
+To reach $50,000/QALY: NOT reachable by price alone (floor $52,858/QALY at free drug)
+To reach $100,000/QALY: price <= $1,246 per dose (94.9% reduction from WAC)
+To reach $150,000/QALY: price <= $2,569 per dose (89.5% reduction from WAC)
+To reach $200,000/QALY: price <= $3,891 per dose (84.1% reduction from WAC)
+
+Utilities: PF 0.61 / PD 0.47, Havrilesky 2009 Tbl 3 TTO means (PMID 19217148),
+recurrent ovarian cancer, grade 3-4 toxicity states. Sourced, not provisional.
+   Incremental QALYs scale the threshold; verify utilities before reporting.

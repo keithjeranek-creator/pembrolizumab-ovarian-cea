@@ -1,0 +1,38 @@
+SCENARIO ANALYSIS: DISCOUNT RATE AND TIME HORIZON
+CHEERS 2022 item 24. Base case is 3% annually over a 30-year horizon.
+
+Scenario                        ICER   vs base     incr cost incr QALY cut->150K     floor@$0
+------------------------------------------------------------------------------------------------
+Discount rate:
+  0% (undiscounted)          940,023     -4.2%       191,898     0.204     88.9%       51,810
+  1.5%                       960,615     -2.1%       189,713     0.197     89.2%       52,337
+  3% (base case)             981,116      0.0%       187,598     0.191     89.5%       52,858
+  5%                       1,008,309      2.8%       184,882     0.183     89.9%       53,542
+
+Time horizon:
+  5 years                  1,006,740      2.6%       187,552     0.186     89.9%       54,007
+  10 years                   981,131      0.0%       187,598     0.191     89.5%       52,859
+  20 years                   981,116      0.0%       187,598     0.191     89.5%       52,858
+  30 years (base case)       981,116      0.0%       187,598     0.191     89.5%       52,858
+
+READING:
+Discount rate 0% to 5% moves the ICER from 940,023 to 1,008,309 per QALY, a range of
+7.0% around the base case. Both bounds remain roughly 6x the $150,000
+threshold, so the discount rate is not a lever on the conclusion.
+
+Time horizon 5 to 30 years moves the ICER from 1,006,740 to 981,116 per QALY.
+A shorter horizon is UNFAVOURABLE here, the opposite of the usual oncology
+pattern: pembrolizumab's cost is front-loaded into the capped 18 cycles while
+its survival benefit accrues over the tail, so truncating the horizon removes
+QALYs that have already been paid for. The base case is therefore the most
+favourable horizon to the intervention, not the most generous to our thesis.
+
+The 10-year and 30-year horizons agree to $14 (0.001%), which is the
+arithmetic behind the Methods claim that 30 years is effectively lifetime in a
+population with ~18-month median overall survival. It is now demonstrated rather
+than asserted.
+
+Across both structural choices the ICER spans 940,023 to 1,008,309 per QALY, a 7.0%
+band. Every value remains at least 6.3 times the $150,000 threshold and the
+required price cut never falls below 88.8%. Neither the discount rate nor the
+time horizon is a lever on the conclusion.

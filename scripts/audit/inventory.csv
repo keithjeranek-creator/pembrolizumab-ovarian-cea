@@ -1,0 +1,40 @@
+param,value,claimed_source,pmid,doi,category,materiality,notes
+u_PF,0.61,Havrilesky 2009,19217148,10.1016/j.ygyno.2008.12.026,utility,high,RESOLVED 2026-08-03 Table 3 TTO mean - recurrent OC responding to chemo grade 3-4 tox. Matched to trial 68%/55% grade>=3 TRAE.
+u_PD,0.47,Havrilesky 2009,19217148,10.1016/j.ygyno.2008.12.026,utility,high,RESOLVED 2026-08-03 Table 3 TTO mean - recurrent OC progressive grade 3-4 tox.
+u_irae_disutil,0.000,DELIBERATE,,,utility,medium,INTENTIONALLY ZERO - toxicity is embedded in the grade 3-4 Havrilesky state utilities; adding Courtney 0.017 on top would double-count. Same convention as Ball 2018.
+c_fn,25176,Flanigan 2024,38777864,10.1007/s00520-024-08492-5,cost,high,Verified 2026-06-22 with exact quote - re-confirm
+c_anaemia3,4818,Wong 2018,29652926,10.1371/journal.pone.0196007,cost,medium,Verified real but is upper bound of unstratified range - disclosed
+c_adrenal,12228,Shaka 2022,35518812,10.1080/08998280.2022.2039503,cost,low,VERIFIED 2026-08-03 Table 2 exact $10006 (2018). Disclose: source says charges in abstract but cost in methods; and MEPS-then-CPI mixed deflator chain.
+c_hypo_annual,350,NONE,,,cost,low,NO SOURCE AT ALL - labelled 'Estimate (low impact)'
+c_infusion_per_visit,133.94,CMS 2026 PFS RVU26A,,,cost,low,CPT 96413; RVU 3.99 x CF 33.5675; verified 2026-06-22
+c_pdl1_test,109.01,CMS CLFS 2025,,,cost,low,CPT 88342 global rate - year mismatch with 2026 basis elsewhere
+c_pembro_per_cycle,24544.00,Merck WAC March 2026,,,cost,high,WAC 400mg q6w - needs a citable public price source
+ptx_price_mg,0.099,CMS Q1 2026 J9267,,,cost,low,ASP payment limit file
+bev_price_biosimilar,23.840,CMS Q1 2026 Q5107,,,cost,medium,Mvasi biosimilar per 10mg unit
+bev_price_brand,73.632,CMS Q1 2026 J9035,,,cost,low,brand - sensitivity only
+c_subsequent_pembro_monthly,0,NONE,,,cost,high,HARDCODED ZERO - STATUS.md wrongly tells Brunetti it is sourced from AURELIA+CMS
+c_subsequent_placebo_monthly,0,NONE,,,cost,high,HARDCODED ZERO - same; placebo spends more time in PD so zero biases ICER optimistic
+bsa_assumed,1.70,ASSUMPTION,,,clinical,medium,No source cited - CHEERS requires justification
+wt_assumed,65,ASSUMPTION,,,clinical,medium,No source cited - CHEERS requires justification
+p_fn_pembro,0.18438,KEYNOTE-B96 Table 2,,,clinical,high,PROXY - grade>=3 neutropenia used as febrile neutropenia; overstates FN
+p_fn_placebo,0.13522,KEYNOTE-B96 Table 2,,,clinical,high,PROXY - same
+p_anaemia3_pembro,0.11875,KEYNOTE-B96 Table 2,,,clinical,low,38/320
+p_anaemia3_placebo,0.07862,KEYNOTE-B96 Table 2,,,clinical,low,25/318
+p_adrenal_pembro,0.02188,KEYNOTE-B96 Table 2,,,clinical,low,7/320
+p_hypo_pembro,0.18125,KEYNOTE-B96 Table 2,,,clinical,low,58/320
+p_hypo_placebo,0.05975,KEYNOTE-B96 Table 2,,,clinical,low,19/318
+p_bev_pembro,0.7298,KEYNOTE-B96 Table 1,,,clinical,medium,235/322
+p_bev_placebo,0.7352,KEYNOTE-B96 Table 1,,,clinical,medium,236/321
+disc_rate_yr,0.03,Second Panel on CEA,,,structural,low,US reference case - Sanders 2016
+pembro_cap,18,KEYNOTE-B96 protocol,,,structural,medium,18 cycles - verify against protocol in supplement
+n_cycles,260,ASSUMPTION,,,structural,medium,30-year horizon - justify vs 5yr used by comparable published models
+pfs_pembro_median,8.3,KEYNOTE-B96,,,clinical,high,published anchor - validation target
+pfs_placebo_median,7.2,KEYNOTE-B96,,,clinical,high,published anchor
+os_pembro_median,18.2,KEYNOTE-B96,,,clinical,high,published anchor
+os_placebo_median,14.0,KEYNOTE-B96,,,clinical,high,published anchor
+os_pembro_12mo,0.691,KEYNOTE-B96,,,clinical,high,published anchor
+os_placebo_12mo,0.593,KEYNOTE-B96,,,clinical,high,published anchor
+os_pembro_18mo,0.515,KEYNOTE-B96,,,clinical,high,published anchor
+os_placebo_18mo,0.389,KEYNOTE-B96,,,clinical,high,published anchor
+LANDMARK_OS_RATES,0.691/0.593/0.515/0.389,KEYNOTE-B96 - PROVENANCE CONFLICT,,,clinical,high,CONFLICT: model_inputs md line 253 says 12/18-mo OS rates are NOT in the main text and were to be DIGITIZED from figures; 00_inputs.R labels them pub 0.691 / pub 0.515 and 06_validation.R validates the Weibull fit against them as published anchors. Weibull calibration depends on these. Resolve against main article text.
+c_pembro_per_cycle,24544.00,RED BOOK Online (Merative US L.P.),,,cost,high,"VERIFIED 2026-08-05 from RED BOOK record: $6,136.00/100mg vial NDC 00006-3026-02 x4 = $24,544.00. No PMID/DOI (subscription database) - verify_citations.py cannot resolve this row by design; verification is the screen capture + the 1.200 AWP/WAC ratio + exact agreement with the separately published 200mg list price. Supersedes the manufacturer list-price URL previously used."

@@ -1,0 +1,25 @@
+"Curve","Dist","AIC","BIC","LogLik","Median_months"
+"OS CPS>=1 Pembro","llogis",1403.25,1410.16,-699.62,21.1
+"OS CPS>=1 Pembro","lnorm",1408.63,1415.54,-702.32,21.9
+"OS CPS>=1 Pembro","gengamma",1410.44,1420.8,-702.22,22
+"OS CPS>=1 Pembro","gompertz",1414.76,1421.67,-705.38,21.3
+"OS CPS>=1 Pembro","exp",1422.25,1425.7,-710.12,23.5
+"OS CPS>=1 Pembro","weibull",1424.23,1431.14,-710.12,23.5
+"OS CPS>=1 Placebo","llogis",1469.29,1476.19,-732.65,16
+"OS CPS>=1 Placebo","lnorm",1480.99,1487.88,-738.49,16.2
+"OS CPS>=1 Placebo","gengamma",1481.25,1491.59,-737.63,16.6
+"OS CPS>=1 Placebo","gompertz",1481.99,1488.88,-739,15.7
+"OS CPS>=1 Placebo","exp",1490.4,1493.85,-744.2,17.9
+"OS CPS>=1 Placebo","weibull",1492.4,1499.29,-744.2,17.9
+"PFS CPS>=1 Pembro","gompertz",1265.05,1271.96,-630.52,10.8
+"PFS CPS>=1 Pembro","llogis",1272.26,1279.17,-634.13,11.7
+"PFS CPS>=1 Pembro","lnorm",1284.32,1291.23,-640.16,12.4
+"PFS CPS>=1 Pembro","gengamma",1285.14,1295.51,-639.57,12.5
+"PFS CPS>=1 Pembro","weibull",1300.84,1307.75,-648.42,13.6
+"PFS CPS>=1 Pembro","exp",1305.41,1308.86,-651.7,14.2
+"PFS CPS>=1 Placebo","gompertz",1288.42,1295.31,-642.21,7.3
+"PFS CPS>=1 Placebo","llogis",1295.3,1302.2,-645.65,8
+"PFS CPS>=1 Placebo","lnorm",1299.06,1305.96,-647.53,8.3
+"PFS CPS>=1 Placebo","gengamma",1299.9,1310.24,-646.95,8
+"PFS CPS>=1 Placebo","weibull",1327.99,1334.89,-662,9.4
+"PFS CPS>=1 Placebo","exp",1337.69,1341.13,-667.84,10.4

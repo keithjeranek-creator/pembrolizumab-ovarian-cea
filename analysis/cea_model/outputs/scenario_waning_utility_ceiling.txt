@@ -1,0 +1,43 @@
+PART A — TREATMENT-EFFECT WANING (probe HE5)
+Treatment stops at 2.08 years (18 cycles). Placebo curves untouched;
+the pembrolizumab hazard is blended toward placebo across the stated window,
+on BOTH endpoints.
+
+Scenario                                              ICER   vs base  incr QALY cut->150K
+--------------------------------------------------------------------------------------------
+No waning (base case)                              981,116      0.0%      0.191     89.5%
+Waning over 5 years after treatment stop         1,023,518      4.3%      0.183     90.0%
+Waning over 2 years after treatment stop         1,072,757      9.3%      0.174     90.6%
+Immediate loss of effect at treatment stop       1,223,114     24.7%      0.152     92.0%
+
+READING: every waning assumption RAISES the ICER, because waning removes
+survival benefit that the capped 18 cycles have already been paid for. The
+base case is therefore the assumption most favourable to the intervention,
+not a choice that flatters the paper's thesis. Reporting it this way removes
+the obvious reviewer objection rather than waiting for it.
+
+
+PART B — UTILITY CEILING
+How good would the health-state utilities have to be for the regimen to reach
+$150,000 per QALY at list price? Bound it rather than argue it.
+
+Scenario                                      u_PF    u_PD  incr QALY          ICER cut->150K
+----------------------------------------------------------------------------------------------
+Base case (0.61 / 0.47)                       0.61    0.47      0.191       981,116     89.5%
+Both utilities at 0.80                        0.80    0.80      0.273       687,433     82.6%
+Both utilities at 0.90                        0.90    0.90      0.307       611,051     79.7%
+ARITHMETIC CEILING: perfect health (1.0)      1.00    1.00      0.341       549,946     76.9%
+
+READING: at perfect health in BOTH states -- utilities of 1.0, which no real
+elicitation can exceed and which would mean progressed ovarian cancer on
+chemotherapy is worth as much as full health -- the ICER is still 549,946
+per QALY, 3.7 times the $150,000 threshold, and a 76.9% price cut is still
+required.
+
+This is the answer to 'are the utilities good enough?'. No utility source can
+change the conclusion, because the conclusion survives the arithmetic ceiling
+on utilities. The right response to the thin utility evidence is therefore to
+DISCLOSE it fully and show this bound, not to spend the remaining schedule
+hunting a better elicitation that cannot move the result.
+
+Combined worst case for the intervention (immediate effect loss): 1,223,114 per QALY.

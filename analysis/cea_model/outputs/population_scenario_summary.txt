@@ -1,0 +1,17 @@
+CPS>=1 vs. OVERALL POPULATION SCENARIO — KEYNOTE-B96 CEA
+
+CPS>=1 (base case)      : incr. cost $187,598, incr. QALY 0.1912, ICER $981,116/QALY
+Overall (unselected ITT): incr. cost $192,105, incr. QALY 0.1945, ICER $987,672/QALY
+
+Price needed to reach $150,000/QALY: CPS>=1 requires a 89.5% cut from WAC; overall requires a 89.6% cut.
+
+Interpretation: PD-L1 CPS>=1 enrichment's effect on value depends on whether
+the incremental QALY gain in the selected population outweighs the smaller
+denominator population it applies to -- this scenario isolates the survival-
+curve effect only (AE rates, costs, and utilities are held constant across
+both populations; see header note on why that is not a new approximation).
+
+Survival curves: CPS>=1 from the validated base-case life-table reconstruction
+(METHODS_LOG.md Section 3); overall population from the same exact method
+applied to the overall-population at-risk/censored counts
+(data/km_digitized/reconstruct_km_overall.R) -- NOT pixel-digitized curves.

@@ -1,0 +1,14 @@
+PROBABILISTIC SENSITIVITY ANALYSIS — KEYNOTE-B96 CEA
+Iterations: 10000 | Seed: 42
+
+Mean incremental cost:  $187,790  (95% CrI $160,105 to $216,690)
+Mean incremental QALY:  0.195  (95% CrI 0.034 to 0.376)
+ICER (point estimate):  $965,225 per QALY
+
+P(cost-effective) at $100,000/QALY:  0.0%
+P(cost-effective) at $150,000/QALY:  0.0%
+
+Utility SE from Havrilesky 2009 Tbl 3 (SD/sqrt(n)): PF 0.064, PD 0.088.
+Cost SE 20% is a convention. Drug price held at list in the PSA by design;
+price is varied deterministically in 08_scenario_price.R instead.
+Survival parameters drawn independently (marginal CIs; correlation not modelled).

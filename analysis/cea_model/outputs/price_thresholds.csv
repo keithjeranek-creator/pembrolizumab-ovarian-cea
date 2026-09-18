@@ -1,0 +1,5 @@
+"wtp","reachable","price_mult","price_per_dose","pct_reduction"
+50000,FALSE,NA,NA,NA
+1e+05,TRUE,0.0508,1246,94.9
+150000,TRUE,0.1046,2569,89.5
+2e+05,TRUE,0.1585,3891,84.1

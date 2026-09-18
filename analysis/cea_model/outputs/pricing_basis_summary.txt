@@ -1,0 +1,15 @@
+PEMBROLIZUMAB PRICING BASIS SCENARIO — KEYNOTE-B96 CEA
+
+WAC basis    : $24,544.00/dose -> ICER $981,116/QALY
+ASP+6% basis : $23,890.40/dose -> ICER $956,397/QALY
+Change: -2.52% (price difference is -2.66% of WAC; QALYs unaffected by price)
+
+Interpretation: ASP+6% sits ~2.7% BELOW WAC for pembrolizumab in this period,
+so the pricing basis is not a material driver of the ICER. WAC remains the base
+case (publicly verifiable, standard in published US oncology CEAs); ASP+6% is the
+more realistic Medicare Part B buy-and-bill reimbursement ceiling and is reported
+here as the standard sensitivity check, not because it materially changes the result.
+
+Sources: WAC - Red Book Online (Merative), $6,136.00 per 100 mg vial, accessed
+2026-08-05. ASP+6% - CMS Part B ASP Pricing File,
+January 2026 Part B Payment Limit File (J9271, $59.726/mg), verified 2026-08-03.

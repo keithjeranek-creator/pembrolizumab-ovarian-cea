@@ -1,0 +1,23 @@
+ONE-WAY DETERMINISTIC SENSITIVITY ANALYSIS — KEYNOTE-B96 CEA
+Base-case ICER: $981,116 per QALY
+25 parameters varied (22 with sourced CIs/ranges, 3 with conventional +/-20-30% bands flagged 'conv').
+Ranked by |ICER spread|, top 10 shown below (full table in dsa_tornado_full.csv):
+
+ 1. Survival: OS pembro scale                  [ci]  ICER range: $557,087 - $2,787,424
+ 2. Survival: OS placebo scale                 [ci]  ICER range: $715,486 - $1,679,719
+ 3. Utility: progression-free (u_PF)           [range]  ICER range: $782,514 - $1,123,716
+ 4. Survival: OS placebo shape                 [ci]  ICER range: $921,781 - $1,227,349
+ 5. Survival: OS pembro shape                  [ci]  ICER range: $805,550 - $1,044,183
+ 6. Utility: post-progression (u_PD)           [range]  ICER range: $816,425 - $1,026,409
+ 7. Survival: PFS placebo scale                [ci]  ICER range: $933,892 - $1,045,181
+ 8. Survival: PFS pembro shape                 [ci]  ICER range: $916,633 - $1,011,272
+ 9. Survival: PFS pembro scale                 [ci]  ICER range: $932,697 - $1,012,749
+10. Bevacizumab price: biosimilar vs brand     [ci]  ICER range: $981,116 - $1,050,349
+
+Provenance key: [ci] = derived from reported trial counts, SD, or published range.
+                [conv] = no CI/range in source; conventional +/-20-30% band applied
+                (flagged so it is not mistaken for a verified uncertainty estimate).
+Utilities (u_PF, u_PD) are Havrilesky 2009 Tbl 3 TTO means (PMID 19217148) and are
+varied here over the full verified published range for this population, not a
+conventional band. See 2026_08_03_UTILITY_CITATION_AUDIT.md.
+their conv bands here are illustrative, not a substitute for that verification.

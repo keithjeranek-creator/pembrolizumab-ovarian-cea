@@ -1,0 +1,8 @@
+.DS_Store
+.Rhistory
+.Rdata
+.Rproj.user/
+*.Rproj
+__pycache__/
+*.pyc
+scripts/audit/cache/

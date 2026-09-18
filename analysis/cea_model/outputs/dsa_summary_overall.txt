@@ -1,0 +1,23 @@
+ONE-WAY DSA, OVERALL-POPULATION SCENARIO — KEYNOTE-B96 CEA
+Overall-population base-case ICER: $987,672 per QALY (vs $768,816 for CPS>=1)
+25 parameters varied (14 sourced CIs, 8 survival CIs recentred from the CPS>=1 bootstrap, 3 conventional bands flagged 'conv').
+Ranked by |ICER spread|, top 10 shown below (full table in dsa_tornado_overall_full.csv):
+
+ 1. Survival: OS pembro scale                  [recentred]  ICER range: $564,534 - $2,734,735
+ 2. Survival: OS placebo scale                 [recentred]  ICER range: $723,150 - $1,673,212
+ 3. Survival: OS pembro shape                  [recentred]  ICER range: $758,132 - $1,107,378
+ 4. Utility: progression-free (u_PF)           [range]  ICER range: $789,147 - $1,129,780
+ 5. Survival: OS placebo shape                 [recentred]  ICER range: $930,812 - $1,219,275
+ 6. Utility: post-progression (u_PD)           [range]  ICER range: $819,008 - $1,034,264
+ 7. Survival: PFS pembro shape                 [recentred]  ICER range: $908,667 - $1,038,960
+ 8. Survival: PFS placebo scale                [recentred]  ICER range: $936,983 - $1,056,805
+ 9. Survival: PFS placebo shape                [recentred]  ICER range: $959,829 - $1,040,442
+10. Bevacizumab price: biosimilar vs brand     [ci]  ICER range: $987,672 - $1,056,154
+
+Provenance key: [ci] = derived from reported trial counts, SD, or published range.
+                [recentred] = CPS>=1 bootstrap's relative CI width applied to the
+                overall-population point estimate (no separate bootstrap was run --
+                disclosed simplification, see script header).
+                [conv] = no CI/range in source; conventional +/-20-30% band applied.
+
+Comparison to CPS>=1 tornado: survival extrapolation dominates in both populations.

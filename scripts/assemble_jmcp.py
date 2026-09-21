@@ -22,6 +22,7 @@ Run:  python3 scripts/assemble_jmcp.py
 """
 import json, os, re, subprocess, sys, urllib.request
 from docx import Document
+from docx.oxml.ns import qn
 from docx.shared import Pt
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
@@ -75,7 +76,16 @@ for s in out.styles:
         s.font.name='Times New Roman'; s.font.size=Pt(12)
         s.paragraph_format.line_spacing=1.5
 
+def ama_citations(text):
+    """AMA, and JMCP house style: a superscript citation sits AFTER a period or a
+    comma and BEFORE a colon or semicolon, never preceded by a space. Applied here
+    so the section sources can carry the marker wherever it reads naturally."""
+    text = re.sub(r'[ \t]*(\[cite:[^\]]+\])[ \t]*([.,])', r'\2\1', text)
+    text = re.sub(r'[ \t]+(\[cite:[^\]]+\])', r'\1', text)
+    return text
+
 def para(text, center=False):
+    text = ama_citations(text)
     p=out.add_paragraph(); p.paragraph_format.space_after=Pt(10)
     if center: p.alignment=WD_ALIGN_PARAGRAPH.CENTER
     for part in re.split(r'(\[cite:[^\]]+\])', text):
@@ -137,11 +147,11 @@ for name,f in BODY:
         para(t); body_count+=len(re.sub(r'\[cite:[^\]]+\]','',t).split())
 
 # --- disclosures ------------------------------------------------------------
-fm=Document(os.path.join(MS,'2026_09_01_FrontMatter_Funding_COI_v2.docx'))
+fm=Document(os.path.join(MS,'2026_09_21_FrontMatter_Disclosures_v3.docx'))
 for p in fm.paragraphs:
     t=p.text.strip()
-    if not t or t.startswith('Draft 2,') or t.startswith('Front matter:'): continue
-    if p.style.name.startswith('Heading'): out.add_heading(t,1 if 'Front' in t else 2)
+    if not t or t.startswith('Draft ') or t.startswith('Front matter:'): continue
+    if p.style.name.startswith('Heading'): out.add_heading(t,1)
     else: para(t)
 
 # --- references -------------------------------------------------------------
@@ -173,13 +183,27 @@ for lab,txt in [
     q.paragraph_format.space_after=Pt(10)
 
 def append_docx(path, heading_level=1):
-    """Copy a built table document into the manuscript, preserving its table grid."""
-    src=Document(path)
-    for blk in src.element.body:
-        out.element.body.append(blk)
+    """Copy a built table document into the manuscript, preserving its table grid.
 
-out.add_page_break()
-for f in ['_JMCP_Table1_Cohort_Characteristics.docx','_JMCP_Table2_Base_Case_Results.docx']:
+    Two things matter here. The source body is materialised with list() first:
+    appending an element moves it out of the source tree, and iterating the live
+    list while it shrinks silently skips every other block. The trailing sectPr
+    is dropped, because carrying a section definition across produces a section
+    break and a blank page in the assembled file.
+    """
+    src=Document(path)
+    body=out.element.body
+    tail=body.find(qn('w:sectPr'))          # the body's own section definition
+    for blk in list(src.element.body):
+        if blk.tag.endswith('}sectPr'): continue
+        if tail is not None: tail.addprevious(blk)
+        else: body.append(blk)
+
+# One table per page, so a table never splits from its footnotes or its
+# abbreviation key.
+for i,f in enumerate(['_JMCP_Table1_Cohort_Characteristics.docx',
+                      '_JMCP_Table2_Base_Case_Results.docx']):
+    out.add_page_break()
     append_docx(os.path.join(MS, TODAY_ISO+f))
 
 dest=os.path.join(MS,f"{TODAY_ISO}_JMCP_SUBMISSION_v1.docx")

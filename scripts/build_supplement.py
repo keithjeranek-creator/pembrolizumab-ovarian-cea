@@ -39,6 +39,7 @@ for line in [
  'Supplementary Table 2. Results under all six parametric survival distributions.',
  'Supplementary Table 3. Scenario analyses.',
  'Supplementary Table 4. Calibration error by parametric distribution.',
+ 'Supplementary Table 5. Pembrolizumab price required to reach each willingness-to-pay threshold.',
  'Supplementary Figure 1. Reconstructed Kaplan-Meier curves with fitted Weibull extrapolation.',
  'Supplementary Figure 2. Cost-effectiveness plane.',
  'Supplementary Figure 3. Tornado diagram of the one-way sensitivity analysis.',
@@ -112,7 +113,7 @@ doc.add_paragraph('Sum of squared error between each fitted curve and the publis
  'into the scenario analysis in Supplementary Table 2.')
 fit=rows('distribution_scenario_fit_diagnostics.csv')
 NAMES2={'exp':'Exponential','weibull':'Weibull','lnorm':'Log-normal','llogis':'Log-logistic',
-        'gompertz':'Gompertz','gengamma':'Generalised gamma'}
+        'gompertz':'Gompertz','gengamma':'Generalized gamma'}
 def sci(x):
     v=float(x)
     return f"{v:.2e}" if v < 0.001 else f"{v:.5f}"
@@ -120,6 +121,34 @@ table(['Distribution','SSE, overall survival, pembrolizumab','SSE, overall survi
        'SSE, progression-free survival, pembrolizumab','SSE, progression-free survival, placebo'],
       [[NAMES2.get(r['distribution'],r['distribution']), sci(r['sse_os_pembro']),
         sci(r['sse_os_placebo']), sci(r['sse_pfs_pembro']), sci(r['sse_pfs_placebo'])] for r in fit])
+
+# ---- Supplementary Table 5: price-reduction thresholds ---------------------
+# These rows used to sit inside Table 2's grid. They use the columns with
+# different meanings than that table's header declares, so they are their own
+# table here and Figure 3 carries the relationship in the main text.
+doc.add_heading('Supplementary Table 5. Pembrolizumab price required to reach each '
+                'willingness-to-pay threshold',1)
+thr=rows('price_thresholds.csv')
+curve=rows('price_curve.csv')
+floor=min(float(r['icer']) for r in curve)
+doc.add_paragraph('Incremental quality-adjusted life-years do not depend on drug price, so the '
+ 'incremental cost-effectiveness ratio is linear in the price of pembrolizumab and the threshold '
+ 'price is solved directly rather than searched. Reductions are from the wholesale acquisition '
+ 'cost of $24,544 per 400 mg dose. Figure 3 plots the same relationship across the full price '
+ f'range. At zero drug price the ratio does not fall below ${floor:,.0f} per QALY, because '
+ 'non-drug costs of care and the residual difference in backbone therapy between arms remain.')
+LABEL={'50000':'$50,000','1e+05':'$100,000','150000':'$150,000','2e+05':'$200,000'}
+data=[]
+for r in thr:
+    lab=LABEL.get(r['wtp'], r['wtp'])
+    if r['reachable']=='FALSE':
+        data.append([f"{lab} per QALY",'Not reachable at any price','Not applicable'])
+    else:
+        data.append([f"{lab} per QALY", f"${float(r['price_per_dose']):,.0f}",
+                     f"{float(r['pct_reduction']):.1f}%"])
+table(['Willingness-to-pay threshold','Pembrolizumab price per 400 mg dose',
+       'Reduction from list price'], data)
+doc.add_paragraph('QALY = quality-adjusted life-year.')
 
 doc.add_heading('Supplementary Figures',1)
 doc.add_paragraph('Supplementary Figure 1. Reconstructed Kaplan-Meier curves with fitted Weibull '

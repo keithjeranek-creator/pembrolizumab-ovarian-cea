@@ -158,14 +158,15 @@ doc.add_paragraph('Supplementary Figure 1. Reconstructed Kaplan-Meier curves wit
  'Supplementary Figure 2. Cost-effectiveness plane. Each point is one of 10,000 probabilistic '
  'iterations; the diamond is the mean. All iterations fall in the northeast quadrant, above every '
  'willingness-to-pay threshold line.\n\n'
- 'Supplementary Figure 3. Tornado diagram of the one-way deterministic sensitivity analysis, showing '
- 'the 25 parameters ordered by the width of the interval each produces. Numerical values are in '
- 'Supplementary Table 1.\n\n'
+ 'Supplementary Figure 3. Cost-effectiveness acceptability curve. Probability that pembrolizumab '
+ 'plus weekly paclitaxel is cost-effective across willingness-to-pay values from $0 to $500,000 per '
+ 'quality-adjusted life-year, from 10,000 probabilistic iterations. The curve is flat at zero across '
+ 'the whole range. Dotted lines mark the $100,000 and $150,000 thresholds.\n\n'
  'Supplementary Figure 4. Disaggregated cost by category and arm.\n\n'
  'Supplementary Figure 5. Incremental cost-effectiveness ratio under each parametric survival '
  'distribution. Numerical values are in Supplementary Table 2.\n\n'
- 'The model structure diagram, the cost-effectiveness acceptability curve, and the price-threshold '
- 'curve appear in the main manuscript as Figures 1, 2 and 3.')
+ 'The model structure diagram, the tornado diagram, and the price-threshold curve appear in the '
+ 'main manuscript as Figures 1, 2 and 3.')
 
 doc.add_heading('Supplementary File 1. CHEERS 2022 checklist',1)
 doc.add_paragraph('The completed CHEERS 2022 checklist is provided as a separate file. All 28 items '

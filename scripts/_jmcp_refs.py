@@ -1,23 +1,28 @@
 # Shared reference table and marker map, imported by both assemblers.
+#
+# Access dates are LITERALS, not {TODAY_LONG}. An access date records when a
+# person consulted the source; stamping it with the build date silently rewrote
+# five references from "September 1, 2026" to whatever day the script last ran.
+# Change one of these only when the source is actually re-checked.
 # Single source of truth: duplicating this list is how one copy goes stale.
 REFS = [
  ('P','41528114'), ('P','41974150'), ('P','24637997'), ('P','31046082'), ('P','34143970'),
  ('T', 'US Food and Drug Administration. Drugs@FDA: FDA-approved drugs. Pembrolizumab, BLA 125514, '
-       f'supplement 186; approved February 10, 2026. Accessed {TODAY_LONG}. '
+       'supplement 186; approved February 10, 2026. Accessed September 1, 2026. '
        'https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=125514'),
  ('P','35098747'),
  ('T', 'US Bureau of Labor Statistics. Consumer Price Index for All Urban Consumers: medical care '
-       f'services in US city average. Series CUUR0000SAM2. Accessed {TODAY_LONG}. https://www.bls.gov/cpi/'),
+       'services in US city average. Series CUUR0000SAM2. Accessed September 1, 2026. https://www.bls.gov/cpi/'),
  ('P','33248517'), ('P','27623463'), ('P','23341049'), ('P','31707911'), ('P','19217148'), ('P','29464667'),
  ('T', 'Red Book Online. Merative US L.P.; 2026. Accessed August 3, 2026. https://www.micromedexsolutions.com'),
  ('T', 'Centers for Medicare & Medicaid Services. Medicare Part B drug payment limit file: January 2026. '
-       f'Accessed {TODAY_LONG}. https://www.cms.gov/medicare/payment/part-b-drugs/asp-pricing-files'),
+       'Accessed September 1, 2026. https://www.cms.gov/medicare/payment/part-b-drugs/asp-pricing-files'),
  ('T', 'Centers for Medicare & Medicaid Services. PFS relative value files: RVU26A. '
-       f'Accessed {TODAY_LONG}. '
+       'Accessed September 1, 2026. '
        'https://www.cms.gov/medicare/payment/fee-schedules/physician/pfs-relative-value-files'),
  ('P','38777864'), ('P','29652926'), ('P','35518812'), ('P','25162885'),
  ('T', 'Social Security Act §1182(e), 42 USC §1320e-1(e). '
-       f'Accessed {TODAY_LONG}. https://www.ssa.gov/OP_Home/ssact/title11/1182.htm'),
+       'Accessed September 1, 2026. https://www.ssa.gov/OP_Home/ssact/title11/1182.htm'),
  ('T', 'Inflation Reduction Act of 2022, Pub L No. 117-169, 136 Stat 1818 (2022).'),
 ]
 MAP = {

@@ -84,10 +84,12 @@ def ama_citations(text):
     text = re.sub(r'[ \t]+(\[cite:[^\]]+\])', r'\1', text)
     return text
 
-def para(text, center=False):
+def para(text, center=False, lead=None):
     text = ama_citations(text)
     p=out.add_paragraph(); p.paragraph_format.space_after=Pt(10)
     if center: p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+    if lead:
+        r=p.add_run(lead); r.bold=True
     for part in re.split(r'(\[cite:[^\]]+\])', text):
         m=re.match(r'\[cite:([^\]]+)\]', part)
         if m:
@@ -110,7 +112,7 @@ out.add_page_break()
 
 # --- abstract / plain language summary / implications -----------------------
 req = Document(os.path.join(MS,'2026_09_01_JMCP_Required_Sections.docx'))
-mode=None; body_words={'abstract':0}
+mode=None; pending_lead=None; body_words={'abstract':0}
 for p in req.paragraphs:
     t=p.text.strip()
     if not t: continue
@@ -122,9 +124,9 @@ for p in req.paragraphs:
         mode=None; continue
     if mode is None or st=='Heading 1': continue
     if st=='Heading 3':
-        h=out.add_paragraph(); r=h.add_run(t+':'); r.bold=True
-        h.paragraph_format.space_after=Pt(2); continue
-    para(t)
+        pending_lead=t.upper()+': '   # runs into the next paragraph, as JMCP prints it
+        continue
+    para(t, lead=pending_lead); pending_lead=None
     if mode=='abstract': body_words['abstract']+=len(t.split())
 out.add_page_break()
 
@@ -171,10 +173,11 @@ for lab,txt in [
  ('Figure 1.','Three-state partitioned survival model structure. Cohort occupancy of the '
   'progression-free, progressed, and dead states is read from the area under the fitted '
   'progression-free and overall survival curves; no transition probabilities are estimated.'),
- ('Figure 2.','Cost-effectiveness acceptability curve. Probability that pembrolizumab plus weekly '
-  'paclitaxel is cost-effective across willingness-to-pay values from $0 to $500,000 per '
-  'quality-adjusted life-year, from 10,000 probabilistic iterations. Dotted lines mark the $100,000 '
-  'and $150,000 thresholds.'),
+ ('Figure 2.','Tornado diagram of the one-way deterministic sensitivity analysis. The 25 model '
+  'parameters are ordered by the width of the incremental cost-effectiveness ratio interval each '
+  'produces when varied across its range, widest at the top. The vertical line is the base-case '
+  'ratio of $981,116 per quality-adjusted life-year. Numerical values for every parameter are in '
+  'Supplementary Table 1.'),
  ('Figure 3.','Incremental cost-effectiveness ratio as a function of pembrolizumab price reduction '
   'from list. Because incremental quality-adjusted life-years do not depend on drug price, the ratio '
   'is linear in price and the threshold price can be solved directly. The floor at zero drug price '
